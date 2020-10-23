@@ -1,0 +1,49 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'ejercicio'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.22.Final'
+	compile group: 'org.eclipse.persistence', name: 'javax.persistence', version: '2.2.1'
+	compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.4.22.Final'
+	compile group: 'com.h2database', name: 'h2', version: '1.4.200'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.3.4.RELEASE'
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+	testCompile group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.7.0'
+	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.3.4.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.4.RELEASE'
+
+
+
+}
+
+configurations {
+	all {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
